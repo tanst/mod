@@ -1,1 +1,20 @@
-详情见：[https://91vps.club/2017/06/09/alipay_f2f_ss_panel_mod/](https://91vps.club/2017/06/09/alipay_f2f_ss_panel_mod/)
+  ```
+	git clone https://github.com/tanst/mod.git tmp && mv tmp/.git . && rm -rf tmp && git reset --hard
+	cp config/.config.php.example config/.config.php
+	chattr -i .user.ini
+	mv .user.ini public
+	chown -R root:root *
+	chmod -R 777 *
+	chown -R www:www storage
+	chattr +i public/.user.ini
+  ```
+```
+/public
+
+
+
+
+location / {
+    try_files $uri $uri/ /index.php$is_args$args;
+}
+```
